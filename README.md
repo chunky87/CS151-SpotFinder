@@ -1,1 +1,1 @@
-# CS151Project
+# CS151-Spot Finder
