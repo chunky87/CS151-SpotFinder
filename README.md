@@ -23,30 +23,18 @@ This project aims to help users discover the best spots in their vicinity by off
 - User registration and login functionality.
 - Spring Security for user authentication and authorization.
 
-### User Profiles
-- Creation and editing of user profiles including name, profile picture, and bio.
-
 ### Spot Management
 - Users can add new spots with details like name, category, location, and description.
 
 ### Mapping Integration
 - Incorporation of a mapping API (e.g., Google Maps).
 
-### Spot Interactions
-- Users can like, comment, and save spots to their favorites.
-
 ### News Feed
 - Display spots from followed users.
 - Recommendation system for spot suggestions.
 
-### User-Following System
-- Users can follow and be followed to see others' posts in their news feed.
-
 ### Notifications
 - Alerts for new comments, likes, or followers.
-
-### Search Functionality
-- Search spots by category or location.
 
 ### Mobile App
 - Consideration for Android or iOS app development.
@@ -56,6 +44,20 @@ This project aims to help users discover the best spots in their vicinity by off
 
 ### Maintenance and Updates
 - Regular updates based on user feedback.
+
+## Operations
+
+### User Profiles
+- Users can create and edit profiles including their name, profile picture, and bio.
+
+### Spot Interactions
+- Users can like, comment, and save spots to their favorites.
+
+### User-Following System
+- Users can follow and be followed to see others' posts in their news feed.
+ 
+### Search Functionality
+- Search spots by category or location.
 
 ## References
 - Yelp
