@@ -8,56 +8,30 @@
 New food spots and locations are always a place of interest in people’s everyday lives, and they may not know any good places/restaurants/viewpoints to enjoy in their local area. Instead of endlessly searching on the internet or spam texting friends for locations, "Spot Finder" offers a convenient solution.
 
 ## Description of Functionality
-This project aims to help users discover the best spots in their vicinity by offering spot recommendations based on a user rating system. Users can search for spots, read reviews and ratings, and follow friends. The integration of mapping services and community engagement will enhance user experience.
+This project aims to help users discover the best spots in their vicinity by offering spot recommendations based on a user rating system. Users can search for spots, and read reviews and ratings. 
 
 ## High-level Description
 
 ### Project Setup
-- Set up a Java development environment like Eclipse or IntelliJ IDEA.
-- Choose a Java framework for the project, such as Spring Boot, to simplify development.
+- Use a framework to aid development, like React, Node.js, and/or Spring Boot. 
 
-### Database Design
-- Define the database schema to store user profiles, favorite spots, comments, and likes. Use a relational database like MySQL or PostgreSQL.
+### API Integration
+- Use Yelp Fusion API for searching nearby places by keyword, category, location, etc.
 
-### User Authentication
-- User registration and login functionality.
-- Spring Security for user authentication and authorization.
+### Web-Based Application
+- Use HTML/CSS/Javascript for the frontend of the application.
+- Use Java for the backend of the application.
 
-### Spot Management
-- Users can add new spots with details like name, category, location, and description.
-
-### Mapping Integration
-- Incorporation of a mapping API (e.g., Google Maps).
-
-### News Feed
-- Display spots from followed users.
-- Recommendation system for spot suggestions.
-
-### Notifications
-- Alerts for new comments, likes, or followers.
-
-### Mobile App
-- Consideration for Android or iOS app development.
-
-### User Experience and Design
-- Intuitive and appealing UI design.
-
-### Maintenance and Updates
-- Regular updates based on user feedback.
+### Object-Oriented Design
+- Implement OOP using classes like Restaurant, Review, and User. For example, a restaurant will have a name, address, rating, and reviews.
 
 ## Operations
-
-### User Profiles
-- Users can create and edit profiles including their name, profile picture, and bio.
-
-### Spot Interactions
-- Users can like, comment, and save spots to their favorites.
-
-### User-Following System
-- Users can follow and be followed to see others' posts in their news feed.
  
 ### Search Functionality
 - Search spots by category or location.
+
+### View Details
+- Users can click on a suggested location by the app to view more details about it, such as the address and reviews.
 
 ## References
 - Yelp
