@@ -8,7 +8,7 @@
 New food spots and locations are always a place of interest in people’s everyday lives, and they may not know any good places/restaurants/viewpoints to enjoy in their local area. Instead of endlessly searching on the internet or spam texting friends for locations, "Spot Finder" offers a convenient solution.
 
 ## Description of Functionality
-This project aims to help users discover the best spots in their vicinity by offering spot recommendations based on a user rating system. Users can search for spots, and read reviews and ratings. 
+This project aims to help users discover the best spots in their vicinity by offering spot recommendations based on a user rating system. Users can search for spots and read reviews and ratings. 
 
 ## High-level Description
 
@@ -17,6 +17,7 @@ This project aims to help users discover the best spots in their vicinity by off
 
 ### API Integration
 - Use Yelp Fusion API for searching nearby places by keyword, category, location, etc.
+- Use Yelp Fusion API for displaying ratings and reviews.
 
 ### Web-Based Application
 - Use HTML/CSS/Javascript for the frontend of the application.
@@ -35,6 +36,4 @@ This project aims to help users discover the best spots in their vicinity by off
 
 ## References
 - Yelp
-- Snapchat Local Map
-- Apple Maps
-- Find My Friends
+- Apple/Google Maps
