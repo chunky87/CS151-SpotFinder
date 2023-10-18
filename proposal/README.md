@@ -13,15 +13,17 @@ This project aims to help users discover the best spots in their vicinity by off
 ## High-level Description
 
 ### Project Setup
-- Use a framework to aid development, like React, Node.js, and/or Spring Boot. 
+- Use a framework to aid development, like React and/or Spring Boot.
+- Must be implemented in Java.
 
 ### API Integration
-- Use Yelp Fusion API for searching nearby places by keyword, category, location, etc.
-- Use Yelp Fusion API for displaying ratings and reviews.
+- Utilize Yelp Fusion API for searching nearby places by keyword, category, location, etc.
+- Utilize Yelp Fusion API for displaying ratings and reviews.
 
 ### Web-Based Application
 - Use HTML/CSS/Javascript for the frontend of the application.
 - Use Java for the backend of the application.
+- Create an intuitive and appealing user interface
 
 ### Object-Oriented Design
 - Implement OOP using classes like Restaurant, Review, and User. For example, a restaurant will have a name, address, rating, and reviews.
