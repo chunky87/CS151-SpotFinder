@@ -20,9 +20,9 @@ This project aims to help users discover the best spots in their vicinity by off
 - Utilize Yelp Fusion API for searching nearby places by keyword, category, location, etc.
 - Utilize Yelp Fusion API for displaying ratings and reviews.
 
-### Web-Based Application
+### Desktop Application
 - Use JavaFX for the frontend of the application.
-- Use Java for the backend of the application.
+- Use Spring Boot/Java for the backend of the application.
 - Create an intuitive and appealing user interface
 
 ### Object-Oriented Design
