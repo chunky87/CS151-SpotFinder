@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.sjsu.cs.SpotFinder.SpotFinderController" style="-fx-background-color: #ADD8E6">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label fx:id="welcomeText" text="Welcome to Spot Finder!" style="-fx-font-size: 24; -fx-font-family: 'Courier New'; -fx-font-weight: BOLDER"/>
+    <Label text="Discover delicious food or a relaxing spot near you." style="-fx-font-size: 18; -fx-font-family: 'Courier New'; -fx-font-weight: 600"/>
+    <Label text="Enter your city here:" style="-fx-font-size: 14; -fx-font-family: 'Courier New'">
+        <VBox.margin>
+            <Insets top="20"/>
+        </VBox.margin>
+    </Label>
+    <TextField fx:id="citySearchField" maxWidth="200.0">
+        <VBox.margin>
+            <Insets top="5"/>
+        </VBox.margin>
+    </TextField>
+    <Button text="Search" onAction="#onSearchButtonClick" style="-fx-font-size: 14; -fx-font-family: 'Courier New'; -fx-font-weight: BOLD; -fx-background-color: #FFA500">
+        <VBox.margin>
+            <Insets top="10.0"/>
+        </VBox.margin>
+    </Button>
+
+</VBox>
