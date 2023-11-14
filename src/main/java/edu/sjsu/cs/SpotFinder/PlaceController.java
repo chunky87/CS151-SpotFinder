@@ -14,13 +14,16 @@ public class PlaceController {
 
     public void displayDetails(List<Place> places) {
         StringBuilder details = new StringBuilder();
+        int i = 1;
 
         // loop through place objects
         for (Place place : places) {
+            details.append(i + ")\n");
             details.append("Business Name: ").append(place.getName()).append("\n");
             details.append("Address: ").append(place.getAddress()).append("\n");
             details.append("Rating: ").append(String.format("%.2f stars", place.getRating())).append("\n");
             details.append("Category: ").append(place.getCategory()).append("\n\n");
+            i++;
         }
 
         name.setText(details.toString());
