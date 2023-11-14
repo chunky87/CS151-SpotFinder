@@ -125,7 +125,7 @@ public class SpotFinderController {
             
             Stage newStage = new Stage();
             newStage.setScene(new Scene(parent2, 800, 850));
-            newStage.setTitle("Location Details");
+            newStage.setTitle("Place Details");
             
             // Show the new stage
             newStage.show();
