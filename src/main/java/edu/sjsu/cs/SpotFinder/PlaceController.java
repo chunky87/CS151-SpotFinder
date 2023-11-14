@@ -30,7 +30,6 @@ public class PlaceController {
 
    
     public void initialize() {
-        // Other initialization...
         Platform.runLater(this::setScrollToTop);
     }
 
