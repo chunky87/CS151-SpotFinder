@@ -1,11 +1,13 @@
 package edu.sjsu.cs.SpotFinder;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
-import org.springframework.web.bind.annotation.GetMapping;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.temporal.Temporal;
 
 @RestController
 public class SpotFinderController {
@@ -15,5 +17,20 @@ public class SpotFinderController {
     protected void onSearchButtonClick() {
         String city = citySearchField.getText();
 
+        if (city.isEmpty()) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Search failed.");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter something before searching.");
+            alert.showAndWait();
+        }
+        else {
+            // (perform search here)
+            VBox resultsLayout = new VBox();
+            Scene resultsScene = new Scene(resultsLayout, 800, 600);
+
+            Stage primaryStage = (Stage) citySearchField.getScene().getWindow();
+            primaryStage.setScene(resultsScene);
+        }
     }
 }
