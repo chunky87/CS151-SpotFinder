@@ -6,14 +6,14 @@
       fx:controller="edu.sjsu.cs.SpotFinder.PlaceController" style="-fx-background-color: #ADD8E6;">
 
     <ScrollPane fx:id="scrollPane" fitToWidth = "true" style="-fx-background-color: #ADD8E6;">
-        <VBox alignment="CENTER" style="-fx-background-color: #ADD8E6; -fx-padding: 40 0 0 0;">
+        <VBox alignment="CENTER" style="-fx-background-color: #ADD8E6; -fx-padding: 40 0 80 0;">
             <Label text="This is the Results Page!" style="-fx-font-size: 24; -fx-font-family: 'Courier New'; -fx-font-weight: BOLDER; -fx-alignment: CENTER"/>
             <Label text="(Showing top 10 results within 5000 meters)" style="-fx-font-size: 12; -fx-font-family: 'Courier New'" />
             <Label fx:id="name" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
             <Label fx:id="address" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
             <Label fx:id="rating" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
             <Label fx:id="category" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
-            <Button text="Back to Homepage" onAction="#goBackToHomepage" style="-fx-font-size: 16; -fx-alignment: CENTER" />
+            <Button text="NEW SEARCH" onAction="#goBackToHomepage" style="-fx-font-size: 16; -fx-alignment: CENTER" />
         </VBox>
     </ScrollPane>
 
