@@ -1,0 +1,9 @@
+/* styles.css */
+
+.search-button{
+    -fx-transition: 0.5s;
+}
+
+.search-button:hover {
+    -fx-background-color: #ff8787; 
+}
