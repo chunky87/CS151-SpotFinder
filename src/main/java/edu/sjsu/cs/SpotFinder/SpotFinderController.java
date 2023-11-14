@@ -68,7 +68,7 @@ public class SpotFinderController {
 
     @FXML
     protected void onSearchButtonClick() { 
-        int limit = 5; 
+        int limit = 10; 
         int radius = 5000; 
         String city = citySearchField.getText();
 
@@ -125,7 +125,7 @@ public class SpotFinderController {
             
             Stage newStage = new Stage();
             newStage.setScene(new Scene(parent2, 800, 850));
-            newStage.setTitle("Place Details");
+            newStage.setTitle("Location Details");
             
             // Show the new stage
             newStage.show();
