@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.sjsu.cs.SpotFinder.PlaceController" style="-fx-background-color: #ADD8E6; -fx-padding: 20;">
+
+    <Label text="This is the Results Page!" style="-fx-font-size: 24; -fx-font-family: 'Courier New'; -fx-font-weight: BOLDER"/>
+    <Label text="(Showing results within 5000 meters of you)" style="-fx-font-size: 12; -fx-font-family: 'Courier New'" />
+
+    <Label fx:id="name" text="" style = "-fx-font-size: 16"/>
+    <Label fx:id="address" text="" style = "-fx-font-size: 16"/>
+    <Label fx:id="rating" text="" style = "-fx-font-size: 16"/>
+    <Label fx:id="category" text="" style = "-fx-font-size: 16"/>
+    
+</VBox>
