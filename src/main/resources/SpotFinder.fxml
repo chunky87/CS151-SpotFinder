@@ -36,7 +36,7 @@
             <Insets top="5"/>
         </VBox.margin>
     </TextField>
-    <Button text="Search" onAction="#onSearchButtonClick" style="-fx-font-size: 14; -fx-font-family: 'Courier New'; -fx-font-weight: BOLD; -fx-background-color: #FFA500">
+    <Button text="Search" onAction="#onSearchButtonClick" style="-fx-font-size: 14; -fx-font-family: 'Courier New'; -fx-font-weight: BOLD; -fx-background-color: #FFA500" >
         <VBox.margin>
             <Insets top="10.0"/>
         </VBox.margin>

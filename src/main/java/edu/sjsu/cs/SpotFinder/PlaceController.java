@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,20 +14,28 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
 
-public class PlaceController implements Initializable {
+public class PlaceController {
     @FXML private ScrollPane scrollPane;
     @FXML private Label name;
     @FXML private Label address;
     @FXML private Label rating;
     @FXML private Label category;
+    @FXML private VBox rootVBox; 
+    @FXML private Label firstText;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        scrollPane.setVvalue(0);
+   
+    public void initialize() {
+        // Other initialization...
+        Platform.runLater(this::setScrollToTop);
+    }
+
+    private void setScrollToTop() {
+        scrollPane.setVvalue(0.0);
     }
 
     @FXML
@@ -65,7 +74,10 @@ public class PlaceController implements Initializable {
             details.append("Business Name: ").append(place.getName()).append("\n");
             details.append("Address: ").append(place.getAddress()).append("\n");
             details.append("Rating: ").append(String.format("%.2f stars", place.getRating())).append("\n");
-            details.append("Category: ").append(place.getCategory()).append("\n\n");
+            details.append("Category: ").append(place.getCategory()).append("\n");
+
+            long roundedDistance = Math.round(place.getDistance());
+            details.append("Distance from you: ").append(roundedDistance).append(" meters").append("\n\n");
             i++;
         }
 

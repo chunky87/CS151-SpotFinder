@@ -1,5 +1,6 @@
 package edu.sjsu.cs.SpotFinder;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -68,6 +69,12 @@ public class SpotFinderController {
     @FXML
     private TextField citySearchField;
 
+    public void initialize() {
+
+        citySearchField.setPromptText("Ex: San Jose, CA");
+        Platform.runLater(() -> citySearchField.getParent().requestFocus());
+    }
+
     @FXML
 protected void onSearchButtonClick() { 
     int limit = 10; 
@@ -111,9 +118,10 @@ protected void onSearchButtonClick() {
                         String address = business.get("location").get("address1").asText();
                         double rating = business.get("rating").asDouble();
                         String category = business.get("categories").get(0).get("title").asText();
+                        double distance = business.get("distance").asDouble();
 
                         // Create a Place object
-                        Place newPlace = new Place(name, address, rating, category);
+                        Place newPlace = new Place(name, address, rating, category, distance);
                         places.add(newPlace);
                     }
                     showDetailsInNewPage(places);
@@ -145,8 +153,13 @@ protected void onSearchButtonClick() {
             currentStage.close();
             
             Stage newStage = new Stage();
-            newStage.setScene(new Scene(parent2, 800, 850));
+            Scene scene = new Scene(parent2, 800, 850);
+            
+            File stylesFile = new File("src/main/resources/styles.css");
+            scene.getStylesheets().add(stylesFile.toURI().toURL().toExternalForm());
+
             newStage.setTitle("Location Details");
+            newStage.setScene(scene);
 
             currentStage = newStage;
             
@@ -159,7 +172,7 @@ protected void onSearchButtonClick() {
 
     private void showNoResults() {
         try {
-           File fxmlFile = new File("src/main/resources/NewPage.fxml");
+            File fxmlFile = new File("src/main/resources/NewPage.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(fxmlFile.toURI().toURL());
             Parent parent3 = fxmlLoader.load();
 
@@ -169,7 +182,11 @@ protected void onSearchButtonClick() {
             currentStage.close();
             
             Stage newStage = new Stage();
-            newStage.setScene(new Scene(parent3, 800, 850));
+            Scene scene2 = new Scene(parent3, 800, 850);
+            newStage.setScene(scene2);
+
+            File stylesFile = new File("src/main/resources/styles.css");
+            scene2.getStylesheets().add(stylesFile.toURI().toURL().toExternalForm());
             newStage.setTitle("No Results Found");
 
             currentStage = newStage;

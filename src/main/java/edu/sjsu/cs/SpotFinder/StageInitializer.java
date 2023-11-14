@@ -11,6 +11,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.io.IOException;
 
 @Component
@@ -35,7 +36,13 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
             Parent parent = fxmlLoader.load();
 
             Stage stage = event.getStage();
-            stage.setScene(new Scene(parent, 800, 850));
+
+            Scene scene = new Scene(parent, 800, 850);
+            stage.setScene(scene);
+
+            File stylesFile = new File("src/main/resources/styles.css");
+            scene.getStylesheets().add(stylesFile.toURI().toURL().toExternalForm());
+
             stage.setTitle(applicationTitle);
             stage.show();
         }
