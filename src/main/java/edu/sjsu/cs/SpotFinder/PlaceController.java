@@ -1,16 +1,59 @@
 package edu.sjsu.cs.SpotFinder;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.stage.Stage;
 
-public class PlaceController {
+import java.net.URL;
+
+public class PlaceController implements Initializable {
+    @FXML private ScrollPane scrollPane;
     @FXML private Label name;
     @FXML private Label address;
     @FXML private Label rating;
     @FXML private Label category;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        scrollPane.setVvalue(0);
+    }
+
+    @FXML
+    protected void goBackToHomepage() {
+        try {
+            // Load SpotFinder.fxml
+            File fxmlFile = new File("src/main/resources/SpotFinder.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlFile.toURI().toURL());
+            Parent root = fxmlLoader.load();
+
+            // Create a new Scene with the loaded FXML file
+            Scene scene = new Scene(root, 800, 600);
+
+            // Get the current stage (assuming the current stage is the one displaying the results page)
+            Stage stage = (Stage) name.getScene().getWindow();
+
+            // Set the new Scene to the stage
+            stage.setScene(scene);
+            stage.setTitle("Homepage");
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception (e.g., show an error message)
+        }
+    }
 
     public void displayDetails(List<Place> places) {
         StringBuilder details = new StringBuilder();
@@ -28,5 +71,28 @@ public class PlaceController {
 
         name.setText(details.toString());
     }
-}
 
+    public void showNone() {
+        StringBuilder noResults = new StringBuilder();
+        noResults.append("\nNo results found!");
+        noResults.append("\n");
+        noResults.append("You live in the middle of nowhere  :c\n\n\n");  
+        noResults.append("▒▒▒▒▒▒▒█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n");
+        noResults.append("▒▒▒▒▒▒▒█░▒▒▒▒▒▒▒▓▒▒▓▒▒▒▒▒▒▒░█\n");
+        noResults.append("▒▒▒▒▒▒▒█░▒▒▓▒▒▒▒▒▒▒▒▒▄▄▒▓▒▒░█░▄▄\n");
+        noResults.append("▒▒▄▀▀▄▄█░▒▒▒▒▒▒▓▒▒▒▒█░░▀▄▄▄▄▄▀░░█\n");
+        noResults.append("▒▒█░░░░█░▒▒▒▒▒▒▒▒▒▒▒█░░░░░░░░░░░█\n");
+        noResults.append("▒▒▒▀▀▄▄█░▒▒▒▒▓▒▒▒▓▒█░░░█▒░░░░█▒░░█\n");
+        noResults.append("▒▒▒▒▒▒▒█░▒▓▒▒▒▒▓▒▒▒█░░░░░░░▀░░░░░█\n");
+        noResults.append("▒▒▒▒▒▄▄█░▒▒▒▓▒▒▒▒▒▒▒█░░█▄▄█▄▄█░░█\n");
+        noResults.append("▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█\n");
+        noResults.append("▒▒▒▒█▄▄█░░█▄▄█░░░░░░█▄▄█░░█▄▄█ \n\n");        
+        
+        noResults.append("              ───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───\n");
+        noResults.append("              ───█▒▒░░░░░░░░░▒▒█───\n");
+        noResults.append("              ────█░░█░░░░░█░░█────\n");
+        noResults.append("              ─▄▄──█░░░▀█▀░░░█──▄▄─\n");
+        noResults.append("              █░░█─▀▄░░░░░░░▄▀─█░░█\n");
+        name.setText(noResults.toString());
+    }
+}

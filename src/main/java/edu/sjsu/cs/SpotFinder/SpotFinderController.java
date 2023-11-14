@@ -14,6 +14,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
@@ -67,16 +68,21 @@ public class SpotFinderController {
     private TextField citySearchField;
 
     @FXML
-    protected void onSearchButtonClick() { 
-        int limit = 10; 
-        int radius = 5000; 
-        String city = citySearchField.getText();
+protected void onSearchButtonClick() { 
+    int limit = 10; 
+    int radius = 3000; 
+    String city = citySearchField.getText();
 
-        String searchUrl = apiUrl + "?location=" + city + "&limit=" + limit + "&radius=" + radius;
+    String searchUrl = apiUrl + "?location=" + city + "&limit=" + limit + "&radius=" + radius;
 
-        RestTemplate restTemplate = new RestTemplate();
-        HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
+    RestTemplate restTemplate = new RestTemplate();
+    HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
+    try {
+
+        if (currentStage == null) {
+            currentStage = (Stage) citySearchField.getScene().getWindow();
+        }
         // Make the request to the Yelp API
         ResponseEntity<String> response = restTemplate.exchange(searchUrl, HttpMethod.GET, entity, String.class);
 
@@ -93,26 +99,38 @@ public class SpotFinderController {
                 // Assuming 'businesses' is an array of business objects in the JSON response
                 JsonNode businesses = jsonNode.get("businesses");
 
-                // Loop through each business
-                for (JsonNode business : businesses) {
-                    String name = business.get("name").asText();
-                    String address = business.get("location").get("address1").asText();
-                    double rating = business.get("rating").asDouble();
-                    String category = business.get("categories").get(0).get("title").asText();
+                // Check if there are any results
+                if (businesses.size() == 0) {
+                    // No results found
+                    showNoResults();
+                } else {
+                    // Loop through each business
+                    for (JsonNode business : businesses) {
+                        String name = business.get("name").asText();
+                        String address = business.get("location").get("address1").asText();
+                        double rating = business.get("rating").asDouble();
+                        String category = business.get("categories").get(0).get("title").asText();
 
-                    // Create a Place object to be in list
-                    Place newPlace = new Place(name, address, rating, category);
-                    places.add(newPlace);
+                        // Create a Place object
+                        Place newPlace = new Place(name, address, rating, category);
+                        places.add(newPlace);
+                    }
+                    showDetailsInNewPage(places);
                 }
-
-                showDetailsInNewPage(places);
-            } 
-            
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    } catch (HttpClientErrorException e) {
+        if (e.getRawStatusCode() == 400) {
+            // Bad Request, location not found
+            showNoResults();
+        } else {
+            // Handle other HTTP client errors as needed
+            e.printStackTrace();
+        }
     }
+}
 
     private void showDetailsInNewPage(List<Place> places) {
         try {
@@ -122,10 +140,38 @@ public class SpotFinderController {
 
             PlaceController placeController = fxmlLoader.getController();
             placeController.displayDetails(places);
+
+            currentStage.close();
             
             Stage newStage = new Stage();
             newStage.setScene(new Scene(parent2, 800, 850));
             newStage.setTitle("Location Details");
+
+            currentStage = newStage;
+            
+            // Show the new stage
+            newStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void showNoResults() {
+        try {
+           File fxmlFile = new File("src/main/resources/NewPage.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlFile.toURI().toURL());
+            Parent parent3 = fxmlLoader.load();
+
+            PlaceController placeController = fxmlLoader.getController();
+            placeController.showNone();
+
+            currentStage.close();
+            
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(parent3, 800, 850));
+            newStage.setTitle("No Results Found");
+
+            currentStage = newStage;
             
             // Show the new stage
             newStage.show();
