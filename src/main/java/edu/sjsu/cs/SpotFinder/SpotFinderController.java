@@ -100,7 +100,7 @@ public class SpotFinderController {
                     double rating = business.get("rating").asDouble();
                     String category = business.get("categories").get(0).get("title").asText();
 
-                    // Create a Place object
+                    // Create a Place object to be in list
                     Place newPlace = new Place(name, address, rating, category);
                     places.add(newPlace);
                 }

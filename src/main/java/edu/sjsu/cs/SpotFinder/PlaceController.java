@@ -15,6 +15,7 @@ public class PlaceController {
     public void displayDetails(List<Place> places) {
         StringBuilder details = new StringBuilder();
 
+        // loop through place objects
         for (Place place : places) {
             details.append("Business Name: ").append(place.getName()).append("\n");
             details.append("Address: ").append(place.getAddress()).append("\n");
