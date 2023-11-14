@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.sjsu.cs.SpotFinder.ReviewsController"
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ADD8E6;">
+
+    <!-- Title -->
+    <Label text="Reviews for [Place Name]" style="-fx-font-size: 24; -fx-font-family: 'Courier New'; -fx-font-weight: BOLDER; -fx-alignment: CENTER;"/>
+
+    <!-- Star Rating -->
+    <HBox style="-fx-padding: 10; -fx-spacing: 5; -fx-alignment: CENTER;">
+        <!-- Replace with your actual star images -->
+        <ImageView fx:id="star1" fitHeight="30.0" fitWidth="30.0"/>
+        <ImageView fx:id="star2" fitHeight="30.0" fitWidth="30.0"/>
+        <ImageView fx:id="star3" fitHeight="30.0" fitWidth="30.0"/>
+        <ImageView fx:id="star4" fitHeight="30.0" fitWidth="30.0"/>
+        <ImageView fx:id="star5" fitHeight="30.0" fitWidth="30.0"/>
+        <!-- Add logic to set the star images based on the rating -->
+    </HBox>
+
+    <!-- Scroll Pane for Reviews -->
+    <ScrollPane fitToWidth="true" style="-fx-background-color: #ADD8E6;">
+        <VBox alignment="CENTER" style="-fx-background-color: #ADD8E6; -fx-padding: 20;">
+            <!-- Review 1 -->
+            <VBox style="-fx-padding: 10; -fx-border-color: black; -fx-border-width: 2; -fx-background-color: white; -fx-alignment: CENTER;">
+                <Label text="Review 1" style="-fx-font-size: 16;"/>
+                <Label text="User: [Username]" style="-fx-font-size: 14;"/>
+                <Label text="Rating: [Rating]" style="-fx-font-size: 14;"/>
+                <Label text="Comment: [Review Comment]" style="-fx-font-size: 14;"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</AnchorPane>
