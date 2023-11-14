@@ -15,7 +15,7 @@
         <Insets bottom="100.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="300.0">
+    <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="300.1">
         <image>
             <Image url="@spotGuy.png" />
         </image>
