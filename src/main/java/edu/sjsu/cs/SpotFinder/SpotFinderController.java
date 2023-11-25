@@ -1,5 +1,6 @@
 package edu.sjsu.cs.SpotFinder;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,17 +16,14 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,24 +35,13 @@ public class SpotFinderController {
     @FXML private ImageView imageView;
     private final String apiKey;
     private final String apiUrl = "https://api.yelp.com/v3/businesses/search";
-    
+
+    Dotenv dotenv = Dotenv.configure().directory("./").filename("secret.env").load();
     
     private final HttpHeaders headers;
 
-
-    private String readApiKeyFromFile(String filePath) {
-        String apiKey = null;
-        try {
-            apiKey = new String(Files.readAllBytes(Paths.get(filePath)));
-         } 
-         catch (IOException e) {
-            e.printStackTrace(); // Handle the exception as needed
-        }
-        return apiKey;
-    }   
-
     public SpotFinderController() {
-            apiKey = readApiKeyFromFile("C:/Users/matte/access.txt");
+            apiKey = dotenv.get("API_KEY");
             headers = new HttpHeaders();
             headers.set("Authorization", "Bearer " + apiKey);
             headers.set("accept", "application/json");
