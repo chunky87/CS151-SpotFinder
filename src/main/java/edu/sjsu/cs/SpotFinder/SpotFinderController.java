@@ -47,7 +47,6 @@ public class SpotFinderController {
 
     public SpotFinderController() {
             apiKey = dotenv.get("API_KEY");
-            apiKey = dotenv.get("API_KEY");
             headers = new HttpHeaders();
             headers.set("Authorization", "Bearer " + apiKey);
             headers.set("accept", "application/json");
