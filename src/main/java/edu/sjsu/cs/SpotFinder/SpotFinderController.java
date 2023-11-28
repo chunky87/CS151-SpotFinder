@@ -30,22 +30,29 @@ import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 @RestController
 public class SpotFinderController {
+
+    private List<Place> places = new ArrayList<>();
+
     @FXML private ImageView imageView;
     private final String apiKey;
-    private final String apiUrl = "https://api.yelp.com/v3/businesses/search";
-
+    private final String apiUrl = "https://api.yelp.com/v3/businesses/search";    
+    private final String apiUrl2 = "https://api.yelp.com/v3/businesses";   
+    
     Dotenv dotenv = Dotenv.configure().directory("./").filename("secret.env").load();
     
-    private final HttpHeaders headers;
+    private final HttpHeaders headers; 
 
     public SpotFinderController() {
+            apiKey = dotenv.get("API_KEY");
             apiKey = dotenv.get("API_KEY");
             headers = new HttpHeaders();
             headers.set("Authorization", "Bearer " + apiKey);
             headers.set("accept", "application/json");
     }
+
 
     private Stage currentStage; 
     
@@ -63,70 +70,104 @@ public class SpotFinderController {
     }
 
     @FXML
-protected void onSearchButtonClick() { 
-    int limit = 10; 
-    int radius = 3000; 
-    String city = citySearchField.getText();
+    protected void onSearchButtonClick() { 
+        int limit = 10; 
+        int radius = 3000; 
+        String city = citySearchField.getText();
 
-    String searchUrl = apiUrl + "?location=" + city + "&limit=" + limit + "&radius=" + radius;
+        String searchUrl = apiUrl + "?location=" + city + "&limit=" + limit + "&radius=" + radius;
 
-    RestTemplate restTemplate = new RestTemplate();
-    HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
-    try {
+        try {
 
-        if (currentStage == null) {
-            currentStage = (Stage) citySearchField.getScene().getWindow();
-        }
-        // Make the request to the Yelp API
-        ResponseEntity<String> response = restTemplate.exchange(searchUrl, HttpMethod.GET, entity, String.class);
+            if (currentStage == null) {
+                currentStage = (Stage) citySearchField.getScene().getWindow();
+            }
+            // Make the request to the Yelp API
+            ResponseEntity<String> response = restTemplate.exchange(searchUrl, HttpMethod.GET, entity, String.class);
 
-        // Inside the SpotFinderController.java after making the API request
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<Place> places = new ArrayList<>();
+            // Inside the SpotFinderController.java after making the API request
+            ObjectMapper objectMapper = new ObjectMapper();
 
-        if (response.getStatusCode().is2xxSuccessful()) {
-            String responseBody = response.getBody();
+            if (response.getStatusCode().is2xxSuccessful()) {
+                String responseBody = response.getBody();
 
-            try {
-                JsonNode jsonNode = objectMapper.readTree(responseBody);
+                try {
+                    JsonNode jsonNode = objectMapper.readTree(responseBody);
 
-                // Assuming 'businesses' is an array of business objects in the JSON response
-                JsonNode businesses = jsonNode.get("businesses");
+                    // Assuming 'businesses' is an array of business objects in the JSON response
+                    JsonNode businesses = jsonNode.get("businesses");
 
-                // Check if there are any results
-                if (businesses.size() == 0) {
-                    // No results found
-                    showNoResults();
-                } else {
-                    // Loop through each business
-                    for (JsonNode business : businesses) {
-                        String name = business.get("name").asText();
-                        String address = business.get("location").get("address1").asText();
-                        double rating = business.get("rating").asDouble();
-                        String category = business.get("categories").get(0).get("title").asText();
-                        double distance = business.get("distance").asDouble();
+                    // Check if there are any results
+                    if (businesses.size() == 0) {
+                        // No results found
+                        showNoResults();
+                    } else {
+                        // Loop through each business
+                        for (JsonNode business : businesses) {
+                            String name = business.get("name").asText();
+                            String address = business.get("location").get("address1").asText();
+                            double rating = business.get("rating").asDouble();
+                            String category = business.get("categories").get(0).get("title").asText();
+                            double distance = business.get("distance").asDouble();
+                            String businessId = business.get("id").asText();
 
-                        // Create a Place object
-                        Place newPlace = new Place(name, address, rating, category, distance);
-                        places.add(newPlace);
+                            // Create a Place object
+                            Place newPlace = new Place(name, address, rating, category, distance);
+                            newPlace.setId(businessId);
+                            fetchReviewsForPlace(newPlace);
+                            places.add(newPlace);
+                        }
+                        showDetailsInNewPage(places);
                     }
-                    showDetailsInNewPage(places);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (HttpClientErrorException e) {
+            if (e.getRawStatusCode() == 400) {
+                // Bad Request, location not found
+                showNoResults();
+            } else {
+                // Handle other HTTP client errors as needed
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void fetchReviewsForPlace(Place place) {
+        String reviewsUrl = apiUrl2 + "/" + place.getId() + "/reviews?limit=5&sort_by=yelp_sort";
+    
+        RestTemplate restTemplate2 = new RestTemplate();
+        HttpEntity<String> entity2 = new HttpEntity<>("parameters", headers);
+    
+        ResponseEntity<String> reviewsResponse = restTemplate2.exchange(reviewsUrl, HttpMethod.GET, entity2, String.class);
+    
+        if (reviewsResponse.getStatusCode().is2xxSuccessful()) {
+            String reviewsBody = reviewsResponse.getBody();
+    
+            try {
+                ObjectMapper objectMapper2 = new ObjectMapper();
+                JsonNode reviewsNode = objectMapper2.readTree(reviewsBody).get("reviews");
+    
+                for (JsonNode reviewNode : reviewsNode) {
+                    String username = reviewNode.get("user").get("name").asText();
+                    double rating = reviewNode.get("rating").asDouble();
+                    String comment = reviewNode.get("text").asText();
+                    String date = reviewNode.get("time_created").asText();
+    
+                    // Create a Review object
+                    Review review = new Review(username, rating, comment, date);
+                    place.getReviews().add(review);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    } catch (HttpClientErrorException e) {
-        if (e.getRawStatusCode() == 400) {
-            // Bad Request, location not found
-            showNoResults();
-        } else {
-            // Handle other HTTP client errors as needed
-            e.printStackTrace();
-        }
     }
-}
+
 
     private void showDetailsInNewPage(List<Place> places) {
         try {
@@ -159,7 +200,7 @@ protected void onSearchButtonClick() {
 
     private void showNoResults() {
         try {
-            File fxmlFile = new File("src/main/resources/NewPage.fxml");
+            File fxmlFile = new File("src/main/resources/NoResults.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(fxmlFile.toURI().toURL());
             Parent parent3 = fxmlLoader.load();
 

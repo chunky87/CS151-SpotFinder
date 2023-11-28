@@ -7,12 +7,79 @@
 
     <ScrollPane fx:id="scrollPane" fitToWidth = "true" style="-fx-background-color: #ADD8E6;">
         <VBox fx:id="rootVBox" alignment="CENTER" style="-fx-background-color: #ADD8E6; -fx-padding: 40 0 80 0;">
-            <Label fx:id = "firstText" text="This is the Results Page!" style="-fx-font-size: 24; -fx-font-family: 'Courier New'; -fx-font-weight: BOLDER; -fx-alignment: CENTER"/>
-            <Label text="(Showing top 10 results within 5000 meters)" style="-fx-font-size: 12; -fx-font-family: 'Courier New'" />
-            <Label fx:id="name" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
-            <Label fx:id="address" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
-            <Label fx:id="rating" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
-            <Label fx:id="category" text="" style="-fx-font-size: 16; -fx-alignment: CENTER" />
+            <Label fx:id = "firstText" text="This is the Results Page!" style="-fx-font-size: 28; -fx-font-family: 'Courier New'; -fx-font-weight: BOLDER; -fx-alignment: CENTER"/>
+            <Label fx:id = "description" text="(Showing top 10 results within 5000 meters)" style="-fx-font-size: 12; -fx-font-family: 'Courier New'" />
+            
+            <Label fx:id="name1" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address1" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category1" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance1" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating1" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name2" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address2" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category2" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance2" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating2" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name3" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address3" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category3" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance3" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating3" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name4" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address4" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category4" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance4" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating4" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name5" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address5" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category5" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance5" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating5" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name6" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address6" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category6" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance6" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating6" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name7" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address7" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category7" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance7" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating7" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name8" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address8" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category8" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance8" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating8" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name9" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address9" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category9" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance9" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating9" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Separator style="-fx-padding: 15 50 0 50;" /> 
+
+            <Label fx:id="name10" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="address10" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="category10" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label fx:id="distance10" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Hyperlink fx:id="rating10" text="" style="-fx-font-size: 16; -fx-alignment: BASELINE_LEFT" />
+            <Label text="" style="-fx-padding: 0 0 20 0" />
+
             <Button text="NEW SEARCH" onAction="#goBackToHomepage" style="-fx-font-size: 16; -fx-alignment: CENTER" styleClass="search-button"/>
         </VBox>
     </ScrollPane>

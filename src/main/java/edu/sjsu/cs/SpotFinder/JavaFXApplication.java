@@ -10,6 +10,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class JavaFXApplication extends Application {
+    
+
     private ConfigurableApplicationContext applicationContext;
 
     @Override

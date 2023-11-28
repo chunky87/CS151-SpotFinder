@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="edu.sjsu.cs.SpotFinder.PlaceController" style="-fx-background-color: #ADD8E6;">
+
+    <ScrollPane fx:id="scrollPane" fitToWidth = "true" style="-fx-background-color: #ADD8E6;">
+        <VBox fx:id="rootVBox" alignment="CENTER" style="-fx-background-color: #ADD8E6; -fx-padding: 40 45 80 45;">
+            
+            <Label fx:id="businessNameLabel" text="" style="-fx-font-size: 24; -fx-font-family: 'Courier New'; -fx-font-weight: BOLDER; -fx-alignment: CENTER; -fx-padding: 0 0 20 0"/>
+
+
+        <VBox alignment="TOP_LEFT">
+            <VBox style="-fx-padding: 10; -fx-border-color: black; -fx-border-width: 2; -fx-background-color: white; -fx-alignment: TOP_LEFT;">
+                <Label fx:id="review1" text="Review 1" style="-fx-font-size: 16; -fx-padding: 5 0 5 0"/>
+            </VBox>
+            <Label text="" />
+            <VBox style="-fx-padding: 10; -fx-border-color: black; -fx-border-width: 2; -fx-background-color: white; -fx-alignment: TOP_LEFT;">
+                <Label fx:id="review2" text="Review 2" style="-fx-font-size: 16; -fx-padding: 5 0 5 0"/>
+            </VBox>
+            <Label text="" />
+            <VBox style="-fx-padding: 10; -fx-border-color: black; -fx-border-width: 2; -fx-background-color: white; -fx-alignment: TOP_LEFT;">
+                <Label fx:id="review3" text="Review 3" style="-fx-font-size: 16; -fx-padding: 5 0 5 0"/>
+            </VBox>
+        </VBox>
+
+            <Label text="" style="-fx-padding: 10 0 20 0"/>
+
+            <Button text="RETURN TO RESULTS" onAction="#goBackToResults" style="-fx-font-size: 16; -fx-alignment: CENTER" styleClass="search-button"/>
+            <Label text="Brought to you by Estrada, Chan, and Mallon ♡" style="-fx-font-size: 12; -fx-font-style: italic; -fx-padding: 30 0 20 0"/>
+        </VBox>
+    </ScrollPane>
+
+</VBox>
