@@ -2,25 +2,18 @@ package edu.sjsu.cs.SpotFinder;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.net.URL;
 
 public class PlaceController {
     @FXML private Label businessNameLabel;
@@ -146,7 +139,7 @@ public class PlaceController {
             placeController.displayReviews(place);
 
             Stage newStage = new Stage();
-            Scene scene = new Scene(root, 800, 850);
+            Scene scene = new Scene(root, 800, 750);
 
             File stylesFile = new File("src/main/resources/styles.css");
             scene.getStylesheets().add(stylesFile.toURI().toURL().toExternalForm());

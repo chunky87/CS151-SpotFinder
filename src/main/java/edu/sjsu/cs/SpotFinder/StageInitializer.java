@@ -37,7 +37,7 @@ public class StageInitializer implements ApplicationListener<StageReadyEvent> {
 
             Stage stage = event.getStage();
 
-            Scene scene = new Scene(parent, 800, 850);
+            Scene scene = new Scene(parent, 800, 750);
             File stylesFile = new File("src/main/resources/styles.css");
             scene.getStylesheets().add(stylesFile.toURI().toURL().toExternalForm());
             stage.setScene(scene);
