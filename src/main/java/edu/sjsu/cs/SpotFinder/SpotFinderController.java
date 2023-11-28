@@ -47,6 +47,7 @@ public class SpotFinderController {
 
     public SpotFinderController() {
             apiKey = dotenv.get("API_KEY");
+            apiKey = dotenv.get("API_KEY");
             headers = new HttpHeaders();
             headers.set("Authorization", "Bearer " + apiKey);
             headers.set("accept", "application/json");
@@ -180,7 +181,7 @@ public class SpotFinderController {
             currentStage.close();
             
             Stage newStage = new Stage();
-            Scene scene = new Scene(parent2, 800, 850);
+            Scene scene = new Scene(parent2, 800, 750);
             
             File stylesFile = new File("src/main/resources/styles.css");
             scene.getStylesheets().add(stylesFile.toURI().toURL().toExternalForm());
@@ -209,7 +210,7 @@ public class SpotFinderController {
             currentStage.close();
             
             Stage newStage = new Stage();
-            Scene scene2 = new Scene(parent3, 800, 850);
+            Scene scene2 = new Scene(parent3, 800, 750);
             newStage.setScene(scene2);
 
             File stylesFile = new File("src/main/resources/styles.css");

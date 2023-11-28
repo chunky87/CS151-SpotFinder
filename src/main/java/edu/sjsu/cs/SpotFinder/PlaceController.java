@@ -55,7 +55,7 @@ public class PlaceController {
             Parent root = fxmlLoader.load();
 
             // Create a new Scene with the loaded FXML file
-            Scene scene = new Scene(root, 800, 850);
+            Scene scene = new Scene(root, 800, 750);
 
             // Get the current stage (assuming the current stage is the one displaying the results page)
             Stage stage = (Stage) name1.getScene().getWindow();
