@@ -6,10 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import org.springframework.http.HttpEntity;
@@ -22,8 +20,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -180,7 +176,7 @@ public class SpotFinderController {
             currentStage.close();
             
             Stage newStage = new Stage();
-            Scene scene = new Scene(parent2, 800, 850);
+            Scene scene = new Scene(parent2, 800, 750);
             
             File stylesFile = new File("src/main/resources/styles.css");
             scene.getStylesheets().add(stylesFile.toURI().toURL().toExternalForm());
@@ -209,7 +205,7 @@ public class SpotFinderController {
             currentStage.close();
             
             Stage newStage = new Stage();
-            Scene scene2 = new Scene(parent3, 800, 850);
+            Scene scene2 = new Scene(parent3, 800, 750);
             newStage.setScene(scene2);
 
             File stylesFile = new File("src/main/resources/styles.css");
