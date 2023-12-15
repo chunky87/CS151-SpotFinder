@@ -7,11 +7,11 @@
   - Problem Statement, Description of Functionality, High-level Description
   - Class Diagram
  - Mathew Estrada
-   - Problem Statemetn, Description of Functionality, Operations, References
+   - Problem Statement, Description of Functionality, Operations, References
    - State Diagram
 - Ben Cuttriss Mallon
   - Problem Statement, Description of Functionality, High-level Description
-  - Use Caswe Diagram
+  - Use Case Diagram
   - Sequence Diagram
 
 ### Team members who worked on the project presentation
@@ -27,7 +27,7 @@
 - Ben Cuttriss Mallon
   - Introduction, "What could have been better" section
   - Use Case Diagram explanation
-  - Sequence Diagram Explanation
+  - Sequence Diagram explanation
 
  ### Team members who worked on the project code and report
 - Jeremy Chan
