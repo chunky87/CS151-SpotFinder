@@ -43,10 +43,10 @@
     - made requests to API and displayed data from API to users
     - Search results functionality and FXML, Reviews functionality
   - Edge-case handling (if a user searched for an invalid/unknown city)
-  - Implemented UI for Results page, FXML, and Java code
+  - Implemented Results page, with FXML and Java code
   - Connected retrieved information to the Review page
   - CSS / FXML styling for all pages
-  - Implemented No Results page
+  - Implemented No Results page,  with FXML and Java code
 - Ben Cuttriss Mallon
   - Review page FXML and functionality
 
