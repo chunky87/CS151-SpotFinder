@@ -50,6 +50,7 @@
   - Solution / Operations / Steps to Run Code / Program Screenshots sections of the report
 - Ben Cuttriss Mallon
   - Review page FXML and functionality
+  - Functionality section of the report
 
 # Problem Statement
 New food spots and locations are always a place of interest in people’s everyday lives, and they may not know any good places/restaurants/viewpoints to enjoy in their local area. Instead of endlessly searching on the internet or spam texting friends for locations, "Spot Finder" offers a convenient solution.
@@ -68,7 +69,7 @@ New food spots and locations are always a place of interest in people’s everyd
 # Functionality
 Simply type in your city and search to find the top ten restaurants in your city. Scroll through the categories and reviews to find the spot that best suits you. 
 
-#Operations
+# Operations
 - Search Text Box / Button
     - The user can type anything (preferably a city) into the text box, allowing the application to retrieve their city of choice when the search button is clicked. This information is then sent to the Yelp API appropriately.
 
@@ -79,7 +80,43 @@ Simply type in your city and search to find the top ten restaurants in your city
     - This button is displayed on both the Results and No Results page. When pressed, the application will take the user back to the homepage to allow them to perform a new search.
  
 - Return to Results Button
-    - When clicked, the user is sent back to the results page. This allows them to review the businesses that were displayed before the Reviews page without having to enter the city again. 
+    - When clicked, the user is sent back to the results page. This allows them to review the businesses that were displayed before the Reviews page without having to enter the city again.
 
-#Solution
-Our program Spot Finder is designed to be the optimum choice for individuals looking for popular places around them. Spot Finder utilizes the Yelp API along with efficient Java/FXML code to develop a web application that allows users to search for high-rating businesses around their city. With the help of the API, the application can retrieve important information to help users find the businesses, such as the business name, address, distance from the city, and rating.
+# Solution
+Our program Spot Finder is designed to be the optimum choice for individuals looking for popular places around them. Spot Finder utilizes the Yelp API along with efficient Java/FXML code to develop a web application that allows users to find high-rating businesses around their city quickly. Instead of wasting time asking around or waiting on recommendations, our application streamlines this process and allows users to save time. With the help of the Yelp API, the application can retrieve important information to help users find the businesses, such as the business name, address, distance from the city, and rating.
+
+# Steps to Run Code
+1) Boot up the program in any editor of your choice. We decided to utilize Visual Studio code along with Java extensions.
+     - You will be greeted with a welcome message from Springboot and the Homepage of Spot Finder
+    
+2) Enter your city in the text box below the application's Homepage logo. A valid city must be entered or else the user will be taken to a different page
+     - If the entry is invalid, blank, or gibberish, the user will be sent to a No Results Page (Yelp API returned no results)
+     - If the entry is valid, the user will be taken to a Results Page
+
+3) View Displayed Results
+     - 10 of the most popular businesses closest to the city that was entered will be displayed. This is done by communicating with the Yelp API in our controller java files. To progress further into the application, the user can either scroll to the bottom and click the "new search" button, or click on any of the orange hyperlinks of the businesses (rating).
+  
+4) View Specific Reviews
+     - The user can now see 3 of the top reviews for the corresponding business. The Yelp API is called once more in the controller files, but this time with the specific business's ID instead of the user-entered city. To go back to the top 10 results, click the "return to results" button
+  
+5) Try a new search (if sent to No Results Page)
+     - The user is greeted with a nice message, showing that their entered city was invalid. They must click the "new search" button to try again in the application's homepage. 
+
+# Program Snapshots
+- Homepage
+
+  ![SpotFinderHOME](https://github.com/chunky87/CS151-SpotFinder/assets/145627731/d6bd0025-fbb4-4a72-9837-65a0168fd51f)
+
+- Results Page (San Jose, CA)
+
+  ![SpotFinderSJresults](https://github.com/chunky87/CS151-SpotFinder/assets/145627731/4c46484a-2a7a-4521-86d6-7a2208dfcd0a)
+
+- Reviews Page
+
+  ![SpotFinderReviews](https://github.com/chunky87/CS151-SpotFinder/assets/145627731/0b0f29e2-9cf7-481b-b82c-8fd21d929a47)
+
+- No Results Page
+
+  ![SpotFinderNoResults](https://github.com/chunky87/CS151-SpotFinder/assets/145627731/29c867fb-cafd-4acb-92ca-67c4adef8ccc)
+
+
