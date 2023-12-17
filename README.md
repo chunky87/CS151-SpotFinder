@@ -81,5 +81,5 @@ Simply type in your city and search to find the top ten restaurants in your city
 - Return to Results Button
     - When clicked, the user is sent back to the results page. This allows them to review the businesses that were displayed before the Reviews page without having to enter the city again. 
 
-#Solution
+# Solution
 Our program Spot Finder is designed to be the optimum choice for individuals looking for popular places around them. Spot Finder utilizes the Yelp API along with efficient Java/FXML code to develop a web application that allows users to search for high-rating businesses around their city. With the help of the API, the application can retrieve important information to help users find the businesses, such as the business name, address, distance from the city, and rating.
