@@ -31,18 +31,22 @@
 
  ### Team members who worked on the project code and report
 - Jeremy Chan
-  - Intial project application and FXML setup
+  - Initial project application and FXML setup
     - Created project with Spring Boot
     - Initial Project application start code and FXML (search button and text, background)
   - Hid API key from public/repository
-  - "Team members who worked on __________" section of report
-  - Diagrams section of report
-  - Problem statement section of report
+  - "Team members who worked on __________" section of the report
+  - Diagrams section of the report
+  - Problem statement section of the report
 - Mathew Estrada
   - Yelp Fusion API
     - made requests to API and displayed data from API to users
     - Search results functionality and FXML, Reviews functionality
-  - Edge-case handling (if user searched for gibberish/unknown city)
+  - Edge-case handling (if a user searched for an invalid/unknown city)
+  - Implemented UI for Results page, FXML, and Java code
+  - Connected retrieved information to the Review page
+  - CSS / FXML styling for all pages
+  - Implemented No Results page
 - Ben Cuttriss Mallon
   - Review page FXML and functionality
 
