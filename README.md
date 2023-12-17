@@ -47,6 +47,7 @@
   - Connected retrieved information to the Review page
   - CSS / FXML styling for all pages
   - Implemented No Results page,  with FXML and Java code
+  - Solution / Operations / Steps to Run Code / Program Screenshots sections of the report
 - Ben Cuttriss Mallon
   - Review page FXML and functionality
 
@@ -66,3 +67,19 @@ New food spots and locations are always a place of interest in people’s everyd
 
 # Functionality
 Simply type in your city and search to find the top ten restaurants in your city. Scroll through the categories and reviews to find the spot that best suits you. 
+
+#Operations
+- Search Text Box / Button
+    - The user can type anything (preferably a city) into the text box, allowing the application to retrieve their city of choice when the search button is clicked. This information is then sent to the Yelp API appropriately.
+
+- Rating Hyperlinks
+    - The user is able to click on any orange-colored hyperlinks for the businesses displayed on the Results page. These take the user to the Reviews page for the corresponding business that was clicked. Information is then retrieved once more from the Yelp API to return popular reviews, the date of those reviews, and the reviewer's name.
+ 
+- New Search Button
+    - This button is displayed on both the Results and No Results page. When pressed, the application will take the user back to the homepage to allow them to perform a new search.
+ 
+- Return to Results Button
+    - When clicked, the user is sent back to the results page. This allows them to review the businesses that were displayed before the Reviews page without having to enter the city again. 
+
+#Solution
+Our program Spot Finder is designed to be the optimum choice for individuals looking for popular places around them. Spot Finder utilizes the Yelp API along with efficient Java/FXML code to develop a web application that allows users to search for high-rating businesses around their city. With the help of the API, the application can retrieve important information to help users find the businesses, such as the business name, address, distance from the city, and rating.
