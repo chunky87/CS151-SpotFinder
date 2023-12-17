@@ -120,3 +120,4 @@ Our program Spot Finder is designed to be the optimum choice for individuals loo
   ![SpotFinderNoResults](https://github.com/chunky87/CS151-SpotFinder/assets/145627731/29c867fb-cafd-4acb-92ca-67c4adef8ccc)
 
 
+
